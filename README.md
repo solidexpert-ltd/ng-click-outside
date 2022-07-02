@@ -1,15 +1,3 @@
-# ng-click-outside
-
-⚠️　**This package is deprecated and not maintained.** ⚠️
-
----
-
-[![NPM](https://nodei.co/npm/ng-click-outside.png?compact=true)](https://nodei.co/npm/ng-click-outside/)
-
-**[Demo](https://echeung.me/ng-click-outside/)**
-
-*Formerly called [ng2-click-outside](https://github.com/arkon/ng2-click-outside)*
-
 Angular directive for handling click events outside an element. Useful for things like reacting to clicking
 outside of a dropdown menu or modal dialog.
 
@@ -23,7 +11,7 @@ Like binding to a regular `click` event in a template, you can do something like
 ## Installation
 
 ```shell
-npm install --save ng-click-outside
+npm install --save @solidexpert/ng-click-outside
 ```
 
 
