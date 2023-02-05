@@ -7,6 +7,13 @@ Like binding to a regular `click` event in a template, you can do something like
 <div (clickOutside)="onClickedOutside($event)">My element</div>
 ```
 
+## Versions
+
+| Angular version | package version |
+| --------------- | --------------- |
+| 15.x|15.x|
+| 14.x|14.x|
+| 13.x|13.x|
 
 ## Installation
 
