@@ -3,6 +3,22 @@
 Angular directive for handling click events outside an element. Useful for things like reacting to clicking
 outside of a dropdown menu or modal dialog.
 
+## Table of contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Options](#options)       
+
+
+# Angular Click Outside Compatibility
+
+| Angular Version | Compatible |
+|-----------------|------------|
+| 14.x.x          |  14.x.x    |
+| 15.x.x          |  15.x.x    |
+| 19.x.x          |  19.x.x    |
+
+
 Like binding to a regular `click` event in a template, you can do something like this:
 
 ```HTML
@@ -19,24 +35,12 @@ npm install --save @solidexpert/ng-click-outside
 
 ## Usage
 
-Add `ClickOutsideModule` to your list of module imports:
-
-```typescript
-import { ClickOutsideModule } from 'ng-click-outside';
-
-@NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, ClickOutsideModule],
-  bootstrap: [AppComponent]
-})
-class AppModule {}
-```
-
 You can then use the directive in your templates:
 
 ```typescript
 @Component({
   selector: 'app',
+  imports: [ClickOutsideDirective],  // Import the directive directly
   template: `
     <div (clickOutside)="onClickedOutside($event)">Click outside this</div>
   `
