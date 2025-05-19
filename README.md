@@ -1,3 +1,5 @@
+# Angular Click Outside
+
 Angular directive for handling click events outside an element. Useful for things like reacting to clicking
 outside of a dropdown menu or modal dialog.
 
