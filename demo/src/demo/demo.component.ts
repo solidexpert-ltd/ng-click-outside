@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
+import { ClickOutsideDirective } from '../../../src/click-outside.directive';
 
 @Component({
   selector: 'demo',
+  standalone: true,
+  imports: [ClickOutsideDirective],
   template: `
     <div
       (click)="onClick($event)"
@@ -25,26 +28,26 @@ import { Component } from '@angular/core';
   `
 })
 export class DemoComponent {
-  private countInside: number = 0;
-  private countOutside: number = 0;
+  countInside: number = 0;
+  countOutside: number = 0;
 
-  private attachOutsideOnClick = false;
-  private enabled = true;
+  attachOutsideOnClick = false;
+  enabled = true;
 
-  private _toggleAttachOutsideOnClick() {
+  _toggleAttachOutsideOnClick() {
     this.attachOutsideOnClick = !this.attachOutsideOnClick;
   }
 
-  private _toggleEnabled() {
+  _toggleEnabled() {
     this.enabled = !this.enabled;
   }
 
-  private onClick(e: Event) {
+  onClick(e: Event) {
     console.info('Clicked inside:', e);
     this.countInside++;
   }
 
-  private onClickedOutside(e: Event) {
+  onClickedOutside(e: Event) {
     console.info('Clicked outside:', e);
     this.countOutside++;
   }

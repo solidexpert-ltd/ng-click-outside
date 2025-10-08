@@ -14,7 +14,10 @@ import {
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
-@Directive({ selector: '[clickOutside]' })
+@Directive({
+  selector: '[clickOutside]',
+  standalone: true
+})
 export class ClickOutsideDirective implements OnInit, OnChanges, OnDestroy {
 
   @Input() clickOutsideEnabled: boolean = true;

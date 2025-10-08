@@ -14,9 +14,10 @@ outside of a dropdown menu or modal dialog.
 
 | Angular Version | Compatible |
 |-----------------|------------|
-| 14.x.x          |  14.x.x    |
-| 15.x.x          |  15.x.x    |
+| 20.x.x          |  20.x.x    |
 | 19.x.x          |  19.x.x    |
+| 15.x.x          |  15.x.x    |
+| 14.x.x          |  14.x.x    |
 
 
 Like binding to a regular `click` event in a template, you can do something like this:
@@ -35,14 +36,22 @@ npm install --save @solidexpert/ng-click-outside
 
 ## Usage
 
-You can then use the directive in your templates:
+### Standalone Components (Angular 14+)
+
+This directive is fully standalone and can be directly imported into your components:
 
 ```typescript
+import { Component } from '@angular/core';
+import { ClickOutsideDirective } from '@solidexpert/ng-click-outside';
+
 @Component({
-  selector: 'app',
+  selector: 'app-root',
+  standalone: true,
   imports: [ClickOutsideDirective],  // Import the directive directly
   template: `
-    <div (clickOutside)="onClickedOutside($event)">Click outside this</div>
+    <div (clickOutside)="onClickedOutside($event)">
+      Click outside this element to trigger the event
+    </div>
   `
 })
 export class AppComponent {
@@ -50,6 +59,27 @@ export class AppComponent {
     console.log('Clicked outside:', e);
   }
 }
+```
+
+### Module-based Applications (Legacy)
+
+For older Angular applications using NgModules, you can import the directive in your module:
+
+```typescript
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { ClickOutsideDirective } from '@solidexpert/ng-click-outside';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    ClickOutsideDirective  // Import as standalone directive
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 ```
 
 ### Options
