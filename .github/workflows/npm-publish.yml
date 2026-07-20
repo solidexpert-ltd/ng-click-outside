@@ -3,10 +3,11 @@ name: Publish to NPM
 on:
   push:
     branches:
-      - '**'
+      - master
 
 jobs:
   build-and-publish:
+    if: ${{ github.actor != 'dependabot[bot]' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -18,14 +19,21 @@ jobs:
         with:
           node-version: 20
           registry-url: 'https://registry.npmjs.org/'
+          cache: npm
 
       - name: Install dependencies
-        run: npm i
+        run: npm ci
 
       - name: Build package
         run: npm run build
 
       - name: Publish to NPM
-        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          if npm view "@solidexpert/ng-click-outside@${VERSION}" version >/dev/null 2>&1; then
+            echo "Version ${VERSION} already published — skipping."
+          else
+            npm publish --access public
+          fi
