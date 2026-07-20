@@ -45,7 +45,7 @@
     "@angular/compiler": "^21.0.0",
     "@angular/compiler-cli": "^21.0.0",
     "@angular/core": "^21.0.0",
-    "@angular/platform-browser": "^21.0.0",
+    "@angular/platform-browser": "^22.0.7",
     "rimraf": "^3.0.2",
     "rxjs": "^7.8.1",
     "tslint": "~6.1.3",
